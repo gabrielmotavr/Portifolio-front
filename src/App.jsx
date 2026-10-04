@@ -1,26 +1,20 @@
-import { useState } from 'react'
-//import Login from './pages/login'
-import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Login from './pages/login';
-import Home from './pages/home/home';
-
-const router = createBrowserRouter([
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/",
-    element: <Home />,
-  }
-
-]);
-  
-
-function App() {
-
-  return <RouterProvider router={router} />;
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar/navbar.jsx'
+import Home from './pages/home/home.jsx';
+import Contato from './pages/contato/contato.jsx';
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <main className="p-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sobre-mim" element={<h1>Sobre Mim</h1>} />
+          <Route path="/experiencias" element={<h1>Experiências</h1>} />
+          <Route path="/projetos" element={<h1>Projetos</h1>} />
+          <Route path="/contato" element={<Contato />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
+  );
 }
-
-export default App

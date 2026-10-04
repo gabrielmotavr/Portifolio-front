@@ -1,8 +1,11 @@
+import Navbar from "../../components/navbar/navbar";
+import TypingAnimatedText from "../../components/type/type";
+
 function Home(){
-    return(
-        <div>
-            <h3>HOMEPAGE</h3>
-        </div>
+    return(<>
+       <TypingAnimatedText />
+
+    </>
     )
 }
 
