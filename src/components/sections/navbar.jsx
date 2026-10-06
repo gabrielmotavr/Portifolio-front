@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
   const menuRef = useRef(null);
   const lastFocusedElementRef = useRef(null);
 
@@ -38,7 +40,7 @@ export default function Navbar() {
   return (
     <nav
       className="w-full bg-[#050806]/90 backdrop-blur-md border-b border-emerald-500/20 py-3 px-6 md:px-12 min-h-[72px] fixed top-0 left-0 z-50 flex items-center shadow-lg shadow-emerald-950/20"
-      aria-label="Navegação Principal"
+      aria-label={t.nav.ariaLabel}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
         {/* Logo */}
@@ -56,6 +58,29 @@ export default function Navbar() {
 
         {/* Links de navegação */}
         <div className="flex items-center gap-6">
+          {/* Seletor de idioma */}
+          <div
+            role="group"
+            aria-label={t.nav.switchLanguage}
+            className="flex items-center rounded-lg border border-zinc-800 bg-zinc-950/60 p-0.5 font-mono text-xs"
+          >
+            {["pt", "en"].map((lang) => (
+              <button
+                key={lang}
+                type="button"
+                onClick={() => toggleLanguage(lang)}
+                aria-pressed={language === lang}
+                className={`px-2.5 py-1 rounded-md uppercase cursor-pointer transition-colors ${
+                  language === lang
+                    ? "bg-emerald-600 text-black font-semibold"
+                    : "text-slate-400 hover:text-emerald-400"
+                }`}
+              >
+                {lang}
+              </button>
+            ))}
+          </div>
+
           <div
             id="collapseMenu"
             ref={menuRef}
@@ -66,7 +91,7 @@ export default function Navbar() {
           >
             <div className="py-4 px-2 flex justify-between items-center border-b border-zinc-800 lg:hidden mb-4">
               <span className="font-mono text-xs font-semibold text-emerald-400">
-                // MENU_SISTEMA
+                {t.nav.menuTitle}
               </span>
               <button
                 type="button"
@@ -80,27 +105,27 @@ export default function Navbar() {
             <ul className="flex flex-col gap-3 lg:gap-4 lg:flex-row items-start lg:items-center list-none p-0 m-0">
               <li>
                 <a href="#home" onClick={closeMenu} className={navLinkStyle}>
-                  Home
+                  {t.nav.home}
                 </a>
               </li>
               <li>
                 <a href="#sobre" onClick={closeMenu} className={navLinkStyle}>
-                  Sobre
+                  {t.nav.about}
                 </a>
               </li>
               <li>
                 <a href="#experiencias" onClick={closeMenu} className={navLinkStyle}>
-                  Experiência
+                  {t.nav.experience}
                 </a>
               </li>
               <li>
                 <a href="#projetos" onClick={closeMenu} className={navLinkStyle}>
-                  Projetos
+                  {t.nav.projects}
                 </a>
               </li>
               <li>
                 <a href="#contato" onClick={closeMenu} className={navLinkStyle}>
-                  Contato
+                  {t.nav.contact}
                 </a>
               </li>
             </ul>
@@ -114,7 +139,7 @@ export default function Navbar() {
             onClick={openMenu}
             className="cursor-pointer lg:hidden p-2 rounded-lg text-slate-300 hover:bg-zinc-900 border border-zinc-800 focus:outline-none"
           >
-            <span className="sr-only">Abrir menu</span>
+            <span className="sr-only">{t.nav.openMenu}</span>
             <svg className="size-5 fill-current text-emerald-400" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M3 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2z" clipRule="evenodd" />
             </svg>

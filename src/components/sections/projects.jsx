@@ -1,31 +1,15 @@
+import { useLanguage } from "../../context/LanguageContext";
+
 export default function Projects() {
-  const projects = [
-    {
-      title: "Sistema de Orçamento de Obras",
-      category: "Uso Interno Empresarial",
-      description: "Solução desenvolvida para centralizar a criação e gestão de orçamentos de obras, organizando regras de negócio complexas e reduzindo o tempo de elaboração técnica.",
-      tags: ["React", "Node.js", "Claude Code"]
-    },
-    {
-      title: "VemDoar",
-      category: "Projeto de Impacto Social",
-      description: "Plataforma para engajamento e agendamento de doação de sangue. Focada em regras de negócio para triagem, acompanhamento de histórico e mecanismos de incentivo aos doadores.",
-      tags: ["Java", "Spring Boot", "React"]
-    },
-    {
-      title: "Módulo Contábil Web",
-      category: "Migração de Sistema",
-      description: "Modernização de módulos contábeis legados para a web. Foco na estruturação de dados de plano de contas, consumo de APIs e integração com banco relacional.",
-      tags: ["React", "Firebird SQL", "Postman"]
-    }
-  ];
+  const { t } = useLanguage();
+  const projects = t.projects.list;
 
   return (
     <section id="projetos" className="py-24 px-6 md:px-12 max-w-6xl mx-auto border-b border-zinc-900">
       <div className="space-y-12">
         <div className="space-y-2">
-          <span className="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Portfólio Prático</span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-100">Projetos em Destaque</h2>
+          <span className="font-mono text-xs text-emerald-400 uppercase tracking-widest">{t.projects.eyebrow}</span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-100">{t.projects.title}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
