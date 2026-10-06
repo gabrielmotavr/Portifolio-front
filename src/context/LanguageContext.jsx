@@ -12,7 +12,9 @@ const translations = {
       experience: "Experiência",
       projects: "Projetos",
       contact: "Contato",
-      switchLanguage: "Mudar idioma"
+      switchLanguage: "Mudar idioma",
+      toLight: "Ativar modo claro",
+      toDark: "Ativar modo escuro"
     },
     hero: {
       available: "Disponível para novos desafios",
@@ -131,7 +133,9 @@ const translations = {
       experience: "Experience",
       projects: "Projects",
       contact: "Contact",
-      switchLanguage: "Change language"
+      switchLanguage: "Change language",
+      toLight: "Switch to light mode",
+      toDark: "Switch to dark mode"
     },
     hero: {
       available: "Open to new challenges",

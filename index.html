@@ -9,6 +9,15 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   
     <title>gabrielmotavr-portifolio</title>
+  <!-- Aplica o tema antes do React carregar para evitar "piscar" a cor errada -->
+  <script>
+    try {
+      var t = localStorage.getItem('portfolio_theme');
+      if (t === 'light' || (!t && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.classList.add('light');
+      }
+    } catch (e) {}
+  </script>
 </head>
 
 <body>

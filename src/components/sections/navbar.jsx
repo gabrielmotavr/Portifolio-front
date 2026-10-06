@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
+import { Moon, Sun } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const menuRef = useRef(null);
   const lastFocusedElementRef = useRef(null);
 
@@ -39,7 +42,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="w-full bg-[#050806]/90 backdrop-blur-md border-b border-emerald-500/20 py-3 px-6 md:px-12 min-h-[72px] fixed top-0 left-0 z-50 flex items-center shadow-lg shadow-emerald-950/20"
+      className="w-full bg-[var(--color-dark-bg)]/90 backdrop-blur-md border-b border-emerald-500/20 py-3 px-6 md:px-12 min-h-[72px] fixed top-0 left-0 z-50 flex items-center shadow-lg shadow-emerald-950/20"
       aria-label={t.nav.ariaLabel}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
@@ -81,13 +84,24 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* Alternar modo claro/escuro */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === "light" ? t.nav.toDark : t.nav.toLight}
+            title={theme === "light" ? t.nav.toDark : t.nav.toLight}
+            className="p-1.5 rounded-lg border border-zinc-800 bg-zinc-950/60 text-slate-400 hover:text-emerald-400 cursor-pointer transition-colors"
+          >
+            {theme === "light" ? <Moon className="size-4" /> : <Sun className="size-4" />}
+          </button>
+
           <div
             id="collapseMenu"
             ref={menuRef}
             tabIndex={-1}
             className={`${
               isMenuOpen ? "block" : "hidden"
-            } lg:block bg-[#050806] lg:bg-transparent border-l border-emerald-500/20 lg:border-none w-64 lg:w-auto fixed lg:static top-0 right-0 h-full lg:h-auto shadow-2xl lg:shadow-none overflow-auto z-50 outline-none p-6 lg:p-0`}
+            } lg:block bg-[var(--color-dark-bg)] lg:bg-transparent border-l border-emerald-500/20 lg:border-none w-64 lg:w-auto fixed lg:static top-0 right-0 h-full lg:h-auto shadow-2xl lg:shadow-none overflow-auto z-50 outline-none p-6 lg:p-0`}
           >
             <div className="py-4 px-2 flex justify-between items-center border-b border-zinc-800 lg:hidden mb-4">
               <span className="font-mono text-xs font-semibold text-emerald-400">

@@ -7,6 +7,34 @@
   --color-hacker-emerald: #10B981;
 }
 
+/*
+ * Modo claro: os componentes usam a paleta escura (slate-100 para texto, zinc-950 para cards...).
+ * Em vez de duplicar classes com "dark:", invertemos as variáveis da paleta quando <html> tem a classe "light".
+ */
+html.light {
+  --color-dark-bg: #F6F8F7;
+  --color-dark-card: #FFFFFF;
+
+  --color-slate-100: #0F172A;
+  --color-slate-200: #1E293B;
+  --color-slate-300: #334155;
+  --color-slate-400: #475569;
+  --color-slate-500: #64748B;
+
+  --color-zinc-700: #D4D4D8;
+  --color-zinc-800: #E4E4E7;
+  --color-zinc-900: #F4F4F5;
+  --color-zinc-950: #FFFFFF;
+
+  --color-emerald-400: #047857;
+  --color-emerald-900: #A7F3D0;
+  --color-emerald-950: #ECFDF5;
+}
+
+html, body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 /* Reset direcionado aos links do React Router */
 @layer base {
   a, 
@@ -23,7 +51,7 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   background-color: var(--color-dark-bg);
-  color: #f1f5f9;
+  color: var(--color-slate-100);
   font-family: system-ui, -apple-system, sans-serif;
 }
 

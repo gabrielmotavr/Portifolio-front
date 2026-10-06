@@ -15,7 +15,7 @@ export default function Experience() {
           {t.experience.jobs.map((job) => (
             <div key={job.company} className="relative group">
               <div
-                className={`absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full border-4 border-[#050806] ${
+                className={`absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full border-4 border-[var(--color-dark-bg)] ${
                   job.current ? "bg-emerald-500" : "bg-zinc-700"
                 }`}
               ></div>

@@ -6,14 +6,17 @@ import { BrowserRouter } from "react-router";
 import App from './App.jsx'
 import Navbar from './components/sections/navbar.jsx';
 import { LanguageProvider } from './context/LanguageContext.jsx';
+import { ThemeProvider } from './context/ThemeContext.jsx';
 
 
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
   <BrowserRouter>
-    <LanguageProvider>
-      <App />
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </ThemeProvider>
   </BrowserRouter>,
 );
