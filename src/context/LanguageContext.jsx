@@ -25,7 +25,7 @@ const translations = {
       ctaProjects: "Conheça meus projetos",
       ctaContact: "Entre em contato",
       photoAlt: "Foto de Gabriel Mota Valério",
-      ctaCurriculo: "Baixar Currículo"
+      ctaCurriculo: "Currículo"
     },
     typing: {
       words: ["Gabriel Mota Valério", "Engenheiro de Software"]
@@ -147,7 +147,7 @@ const translations = {
       ctaProjects: "See my projects",
       ctaContact: "Get in touch",
       photoAlt: "Photo of Gabriel Mota Valério",
-      ctaCurriculo: "Donwload Curriculum"
+      ctaCurriculo: "Curriculum"
     },
     typing: {
       words: ["Gabriel Mota Valério", "Software Engineer"]

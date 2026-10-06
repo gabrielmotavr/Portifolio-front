@@ -43,7 +43,8 @@ export default function Hero() {
               {t.hero.ctaContact}
             </a>
             <a
-              href="#contato"
+              href="/CurriculoGabrielMota.pdf"
+              download="CurriculoGabrielMota.pdf"
               className="px-6 py-3 bg-zinc-900 hover:bg-zinc-800 !text-slate-200 border border-zinc-700 hover:border-emerald-500/50 rounded-lg transition-all !no-underline"
             >
               {t.hero.ctaCurriculo}
