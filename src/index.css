@@ -1,15 +1,37 @@
 @import "tailwindcss";
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+@theme {
+  --color-dark-bg: #050806;
+  --color-dark-card: #090D0B;
+  --color-hacker-green: #22C55E;
+  --color-hacker-emerald: #10B981;
 }
 
-@import "tailwindcss";
-
+/* Reset direcionado aos links do React Router */
 @layer base {
-  Lina {
+  a, 
+  a:visited, 
+  a:hover, 
+  a:active {
     color: inherit;
     text-decoration: none;
   }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-dark-bg);
+  color: #f1f5f9;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.neon-glow {
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.neon-text-glow {
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
 }

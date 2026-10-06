@@ -63,8 +63,8 @@ function TypingText({
   }, [controls]);
 
   return (
-    <div className="w-50 h-full flex justify-center bg-green-900">
-      <div className="text-4xl font-mono text-white">
+    <div className="w-100 h-full flex justify-start">
+      <div className="text-4xl font-mono neon-text-glow">
         {currentText}
         <motion.span animate={controls}>|</motion.span>
       </div>
