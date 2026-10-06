@@ -1,59 +1,83 @@
-export default function SimpleRegistrationForm() {
+import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+
+// TODO: coloque aqui o e-mail que vai receber as mensagens
+const CONTACT_EMAIL = "seu-email@exemplo.com";
+
+const inputClass =
+  "w-full px-4 py-3 rounded-lg bg-zinc-950 border border-zinc-800 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/20 transition-all";
+
+const labelClass = "block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2";
+
+export default function ContactForm() {
+  const { t } = useLanguage();
+  const [form, setForm] = useState({ nome: "", email: "", descricao: "" });
+
+  function handleChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const subject = `${t.contactForm.subject} - ${form.nome}`;
+    const body = `${t.contactForm.bodyName}: ${form.nome}\n${t.contactForm.bodyEmail}: ${form.email}\n\n${form.descricao}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setForm({ nome: "", email: "", descricao: "" });
+  }
+
   return (
-    <div className="bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-neutral-800 w-full max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-        Contate-me
-      </h2>
-      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-		Preencha o formulário abaixo para entrar em contato comigo. Estou ansioso para ouvir de você!
-      </p>
+    <form
+      onSubmit={handleSubmit}
+      className="w-full max-w-xl mx-auto text-left space-y-5 p-6 md:p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl"
+    >
+      <div>
+        <label htmlFor="nome" className={labelClass}>{t.contactForm.name}</label>
+        <input
+          id="nome"
+          name="nome"
+          type="text"
+          required
+          placeholder={t.contactForm.namePlaceholder}
+          value={form.nome}
+          onChange={handleChange}
+          className={inputClass}
+        />
+      </div>
 
-      <form className="mt-6 flex flex-col gap-4">
-        {/* Campo Nome */}
-        <div>
-          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">
-            Seu Nome
-          </label>
-          <input
-            type="text"
-            placeholder="Nome Completo"
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-neutral-700 bg-transparent text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-          />
-        </div>
+      <div>
+        <label htmlFor="email" className={labelClass}>{t.contactForm.email}</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          placeholder={t.contactForm.emailPlaceholder}
+          value={form.email}
+          onChange={handleChange}
+          className={inputClass}
+        />
+      </div>
 
-        {/* Campo Email */}
-        <div>
-          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">
-            Seu Email
-          </label>
-          <input
-            type="email"
-            placeholder="nome@email.com"
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-neutral-700 bg-transparent text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-          />
-        </div>
+      <div>
+        <label htmlFor="descricao" className={labelClass}>{t.contactForm.message}</label>
+        <textarea
+          id="descricao"
+          name="descricao"
+          required
+          rows={5}
+          placeholder={t.contactForm.messagePlaceholder}
+          value={form.descricao}
+          onChange={handleChange}
+          className={`${inputClass} resize-y`}
+        />
+      </div>
 
-        {/* Campo Mensagem */}
-        <div>
-          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">
-            Sua Mensagem
-          </label>
-          <input
-            type="text"
-            placeholder="Escreva sua mensagem aqui..."
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-neutral-700 bg-transparent text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-          />
-        </div>
-
-        {/* Botão Cadastrar */}
-        <button
-          type="submit"
-          className="mt-4 w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2.5 rounded-lg shadow-md shadow-emerald-500/20 transition-all cursor-pointer"
-        >
-          Cadastrar
-        </button>
-
-      </form>
-    </div>
+      <button
+        type="submit"
+        className="w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all shadow-lg shadow-emerald-900/30 cursor-pointer"
+      >
+        {t.contactForm.submit}
+      </button>
+    </form>
   );
 }

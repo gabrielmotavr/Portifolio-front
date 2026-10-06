@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 
 function TypingText({
-  words = ["Gabriel Mota Valério", "Engenheiro de Software"],
   typingSpeed = 100,
   deleteSpeed = 50,
   delayBetweenWords = 1000,
@@ -11,11 +10,12 @@ function TypingText({
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const {language, toggleLanguage, t} = useLanguage();
+  const { t } = useLanguage();
+  const words = t.typing.words;
   const controls = useAnimationControls();
 
   useEffect(() => {
-    const word = t.typing.words[currentWordIndex];
+    const word = words[currentWordIndex];
 
     if (isDeleting) {
       if (currentText === "") {
@@ -73,5 +73,7 @@ function TypingText({
 }
 
 export default function TypingAnimatedText() {
-  return <TypingText />;
+  const { language } = useLanguage();
+  // A key reinicia a animação quando o idioma muda
+  return <TypingText key={language} />;
 }
