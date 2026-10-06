@@ -5,6 +5,7 @@ import Experience from "../../components/sections/experience.jsx";
 import Projects from "../../components/sections/projects.jsx";
 import Contact from "../../components/sections/contact.jsx";
 import Footer from "../../components/sections/footer.jsx";
+import MatrixBackground from "../../components/matrix-background.jsx";
 
 function Home() {
   return (
@@ -12,6 +13,8 @@ function Home() {
       <header>
         <Navbar />
       </header>
+
+      <MatrixBackground />
 
       {/* Luz verde radial de fundo */}
       <div className="fixed top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none z-0"></div>

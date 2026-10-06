@@ -24,7 +24,8 @@ const translations = {
       badges: ["19 anos", "Engenharia de Software (PUC Minas)", "Belo Horizonte, MG"],
       ctaProjects: "Conheça meus projetos",
       ctaContact: "Entre em contato",
-      photoAlt: "Foto de Gabriel Mota Valério"
+      photoAlt: "Foto de Gabriel Mota Valério",
+      ctaCurriculo: "Baixar Currículo"
     },
     typing: {
       words: ["Gabriel Mota Valério", "Engenheiro de Software"]
@@ -145,7 +146,8 @@ const translations = {
       badges: ["19 years old", "Software Engineering (PUC Minas)", "Belo Horizonte, Brazil"],
       ctaProjects: "See my projects",
       ctaContact: "Get in touch",
-      photoAlt: "Photo of Gabriel Mota Valério"
+      photoAlt: "Photo of Gabriel Mota Valério",
+      ctaCurriculo: "Donwload Curriculum"
     },
     typing: {
       words: ["Gabriel Mota Valério", "Software Engineer"]

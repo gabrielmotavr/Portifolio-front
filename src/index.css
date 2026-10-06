@@ -63,3 +63,14 @@ html, body {
 .neon-text-glow {
   text-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
 }
+
+/* Fundo "Matrix": discreto e mais apagado no centro, onde fica o texto */
+.matrix-bg {
+  opacity: 0.35;
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, #000 70%);
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, #000 70%);
+}
+
+html.light .matrix-bg {
+  opacity: 0.15;
+}
