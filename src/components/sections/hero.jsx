@@ -59,7 +59,7 @@ export default function Hero() {
 
         <div className="flex justify-center lg:justify-end">
           <div className="border rounded-full object-fit-contain w-90 h-auto">
-            <img src="src\images\perfil-home.jpeg" alt={t.hero.photoAlt} className="rounded-full neon-glow h-auto w-90" />
+            <img src="images/perfil-home.jpeg" alt={t.hero.photoAlt} className="rounded-full neon-glow h-auto w-90" />
           </div>
         </div>
       </div>
