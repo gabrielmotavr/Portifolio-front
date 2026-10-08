@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import emailjs from '@emailjs/browser';
 
 // TODO: coloque aqui o e-mail que vai receber as mensagens
-const CONTACT_EMAIL = "seu-email@exemplo.com";
+const CONTACT_EMAIL = "gabrielmotavalerio@gmail.com";
 
 const inputClass =
   "w-full px-4 py-3 rounded-lg bg-zinc-950 border border-zinc-800 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/20 transition-all";
@@ -11,7 +12,7 @@ const labelClass = "block text-xs font-mono text-slate-400 uppercase tracking-wi
 
 export default function ContactForm() {
   const { t } = useLanguage();
-  const [form, setForm] = useState({ nome: "", email: "", descricao: "" });
+  const [form, setForm] = useState({assunto:"", nome: "", email: "", descricao: "" });
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,10 +20,22 @@ export default function ContactForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const subject = `${t.contactForm.subject} - ${form.nome}`;
-    const body = `${t.contactForm.bodyName}: ${form.nome}\n${t.contactForm.bodyEmail}: ${form.email}\n\n${form.descricao}`;
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setForm({ nome: "", email: "", descricao: "" });
+    emailjs.send(
+      'service_53emtra',
+      'template_1pw15b7',
+      form,
+      { publicKey: 'NRAY13AnCvp8N1rZf' }
+    ).then(
+      () => {
+        alert("Email enviado com sucesso!");
+        setForm({ assunto:"", nome: "", email: "", descricao: "" }); //Limpa campos
+      },
+      (error) =>{
+        //alert("Erro ao enviar o e-mail. Tente novamente.");
+        console.error('Erro:', error.text);
+         alert(`Erro: ${error.text || error.message || 'Erro desconhecido'}`);
+      }
+    )
   }
 
   return (
@@ -39,6 +52,20 @@ export default function ContactForm() {
           required
           placeholder={t.contactForm.namePlaceholder}
           value={form.nome}
+          onChange={handleChange}
+          className={inputClass}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="assunto" className={labelClass}>{t.contactForm.assunto}</label>
+        <input
+          id="assunto"
+          name="assunto"
+          type="text"
+          required
+          placeholder={t.contactForm.assuntoPlaceholder}
+          value={form.assunto}
           onChange={handleChange}
           className={inputClass}
         />

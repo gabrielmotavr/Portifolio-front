@@ -111,6 +111,8 @@ const translations = {
     contactForm: {
       name: "Nome",
       namePlaceholder: "Seu nome",
+      assunto:"Assunto",
+      assuntoPlaceholder:"Digite o assunto",
       email: "Email",
       emailPlaceholder: "nome@email.com",
       message: "Descrição",
@@ -233,6 +235,8 @@ const translations = {
     contactForm: {
       name: "Name",
       namePlaceholder: "Your name",
+      assunto:"Subject",
+      assuntoPlaceholder:"Enter the subject",
       email: "Email",
       emailPlaceholder: "name@email.com",
       message: "Message",
