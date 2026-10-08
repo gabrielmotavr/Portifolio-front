@@ -38,7 +38,7 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
-  const navLinkStyle = "font-mono text-sm transition-colors duration-200 px-3 py-1.5 rounded-md !no-underline inline-flex items-center !text-slate-400 hover:!text-emerald-400 hover:bg-zinc-900/50 cursor-pointer";
+  const navLinkStyle = "font-mono text-sm transition-all duration-200 px-3 py-1.5 rounded-md !no-underline inline-flex items-center !text-slate-400 hover:!text-emerald-400 hover:bg-zinc-900/50 hover:-translate-y-0.5 cursor-pointer";
 
   return (
     <nav
@@ -73,10 +73,10 @@ export default function Navbar() {
                 type="button"
                 onClick={() => toggleLanguage(lang)}
                 aria-pressed={language === lang}
-                className={`px-2.5 py-1 rounded-md uppercase cursor-pointer transition-colors ${
+                className={`px-2.5 py-1 rounded-md uppercase cursor-pointer transition-all duration-200 active:scale-95 ${
                   language === lang
-                    ? "bg-emerald-600 text-black font-semibold"
-                    : "text-slate-400 hover:text-emerald-400"
+                    ? "bg-emerald-600 hover:bg-emerald-500 text-black font-semibold"
+                    : "text-slate-400 hover:text-emerald-400 hover:bg-zinc-900"
                 }`}
               >
                 {lang}
@@ -90,9 +90,13 @@ export default function Navbar() {
             onClick={toggleTheme}
             aria-label={theme === "light" ? t.nav.toDark : t.nav.toLight}
             title={theme === "light" ? t.nav.toDark : t.nav.toLight}
-            className="p-1.5 rounded-lg border border-zinc-800 bg-zinc-950/60 text-slate-400 hover:text-emerald-400 cursor-pointer transition-colors"
+            className="group p-1.5 rounded-lg border border-zinc-800 hover:border-emerald-500/50 bg-zinc-950/60 hover:bg-zinc-900 text-slate-400 hover:text-emerald-400 cursor-pointer transition-all duration-200 active:scale-95"
           >
-            {theme === "light" ? <Moon className="size-4" /> : <Sun className="size-4" />}
+            {theme === "light" ? (
+              <Moon className="size-4 transition-transform duration-300 group-hover:-rotate-12" />
+            ) : (
+              <Sun className="size-4 transition-transform duration-300 group-hover:rotate-45" />
+            )}
           </button>
 
           <div
@@ -110,7 +114,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={closeMenu}
-                className="p-1 cursor-pointer rounded-md text-slate-400 hover:text-emerald-400 focus:outline-none"
+                className="p-1 cursor-pointer rounded-md text-slate-400 hover:text-emerald-400 hover:bg-zinc-900 transition-all duration-200 hover:rotate-90 focus:outline-none"
               >
                 ✕
               </button>
@@ -151,7 +155,7 @@ export default function Navbar() {
             aria-controls="collapseMenu"
             aria-expanded={isMenuOpen}
             onClick={openMenu}
-            className="cursor-pointer lg:hidden p-2 rounded-lg text-slate-300 hover:bg-zinc-900 border border-zinc-800 focus:outline-none"
+            className="cursor-pointer lg:hidden p-2 rounded-lg text-slate-300 hover:bg-zinc-900 border border-zinc-800 hover:border-emerald-500/50 transition-all duration-200 active:scale-95 focus:outline-none"
           >
             <span className="sr-only">{t.nav.openMenu}</span>
             <svg className="size-5 fill-current text-emerald-400" viewBox="0 0 20 20">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Send } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import emailjs from '@emailjs/browser';
 
@@ -101,9 +102,10 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all shadow-lg shadow-emerald-900/30 cursor-pointer"
+        className="group w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-200 shadow-lg shadow-emerald-900/30 hover:shadow-emerald-500/40 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer"
       >
         {t.contactForm.submit}
+        <Send className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
       </button>
     </form>
   );

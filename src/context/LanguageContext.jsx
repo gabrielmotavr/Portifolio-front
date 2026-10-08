@@ -83,7 +83,8 @@ const translations = {
       eyebrow: "// Portfólio Prático",
       title: "Projetos em Destaque",
       list: [
-        {
+        { 
+          img: "src/images/FSOrcamento.png",
           title: "Sistema de Orçamento de Obras",
           category: "Uso Interno Empresarial",
           description: "Solução desenvolvida para centralizar a criação e gestão de orçamentos de obras, organizando regras de negócio complexas e reduzindo o tempo de elaboração técnica.",
@@ -208,6 +209,7 @@ const translations = {
       title: "Featured Projects",
       list: [
         {
+          img: "src/images/FSOrcamento.png",
           title: "Construction Budgeting System",
           category: "Internal Business Tool",
           description: "Solution built to centralize the creation and management of construction budgets, organizing complex business rules and reducing technical preparation time.",

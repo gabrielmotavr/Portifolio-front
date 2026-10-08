@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import ContactForm from "../contact-section";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -18,22 +19,23 @@ export default function Contact() {
 
       <div className="flex flex-wrap justify-center gap-6 pt-4 font-mono text-sm">
         
-        <a 
-          href="https://github.com/gabrielmotavr" 
-          target="_blank" 
-          rel="noreferrer" 
-          className="px-6 py-3 bg-zinc-950 border border-zinc-800 hover:border-emerald-500/50 rounded-lg !text-slate-200 transition-all !no-underline"
+        <a
+          href="https://github.com/gabrielmotavr"
+          target="_blank"
+          rel="noreferrer"
+          className="group px-6 py-3 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 hover:border-emerald-500/50 rounded-lg !text-slate-200 hover:!text-emerald-400 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg hover:shadow-emerald-900/30 flex items-center gap-2 cursor-pointer !no-underline"
         >
-          
           GitHub /gabrielmotavr
+          <ExternalLink className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
-        <a 
-          href="https://linkedin.com/in/gabrielmotavr" 
-          target="_blank" 
-          rel="noreferrer" 
-          className="px-6 py-3 bg-zinc-950 border border-zinc-800 hover:border-emerald-500/50 rounded-lg !text-slate-200 transition-all !no-underline"
+        <a
+          href="https://linkedin.com/in/gabrielmotavr"
+          target="_blank"
+          rel="noreferrer"
+          className="group px-6 py-3 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 hover:border-emerald-500/50 rounded-lg !text-slate-200 hover:!text-emerald-400 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg hover:shadow-emerald-900/30 flex items-center gap-2 cursor-pointer !no-underline"
         >
           LinkedIn /gabrielmotavr
+          <ExternalLink className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>
     </section>

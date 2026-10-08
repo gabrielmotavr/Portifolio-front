@@ -1,3 +1,4 @@
+import { ArrowRight, Download, FolderGit2, Mail } from "lucide-react";
 import TypingAnimatedText from "../type/type";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -32,21 +33,25 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 pt-4">
             <a
               href="#projetos"
-              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 !text-black font-semibold rounded-lg transition-all shadow-lg shadow-emerald-900/30 flex items-center gap-2 !no-underline"
+              className="group px-6 py-3 bg-emerald-600 hover:bg-emerald-500 !text-black font-semibold rounded-lg transition-all duration-200 shadow-lg shadow-emerald-900/30 hover:shadow-emerald-500/40 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 cursor-pointer !no-underline"
             >
+              <FolderGit2 className="w-5 h-5" />
               {t.hero.ctaProjects}
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
             <a
               href="#contato"
-              className="px-6 py-3 bg-zinc-900 hover:bg-zinc-800 !text-slate-200 border border-zinc-700 hover:border-emerald-500/50 rounded-lg transition-all !no-underline"
+              className="group px-6 py-3 bg-zinc-900 hover:bg-zinc-800 !text-slate-200 border border-zinc-700 hover:border-emerald-500/50 rounded-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 cursor-pointer !no-underline"
             >
+              <Mail className="w-5 h-5 text-emerald-400 transition-transform duration-200 group-hover:scale-110" />
               {t.hero.ctaContact}
             </a>
             <a
               href="/CurriculoGabrielMota.pdf"
               download="CurriculoGabrielMota.pdf"
-              className="px-6 py-3 bg-zinc-900 hover:bg-zinc-800 !text-slate-200 border border-zinc-700 hover:border-emerald-500/50 rounded-lg transition-all !no-underline"
+              className="group px-6 py-3 bg-zinc-900 hover:bg-zinc-800 !text-slate-200 border border-zinc-700 hover:border-emerald-500/50 rounded-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 cursor-pointer !no-underline"
             >
+              <Download className="w-5 h-5 text-emerald-400 transition-transform duration-200 group-hover:translate-y-0.5" />
               {t.hero.ctaCurriculo}
             </a>
           </div>
