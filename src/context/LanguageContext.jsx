@@ -209,7 +209,7 @@ const translations = {
       title: "Featured Projects",
       list: [
         {
-          img: "src/images/FSOrcamento.png",
+          img: "/images/FSOrcamento.png",
           title: "Construction Budgeting System",
           category: "Internal Business Tool",
           description: "Solution built to centralize the creation and management of construction budgets, organizing complex business rules and reducing technical preparation time.",
