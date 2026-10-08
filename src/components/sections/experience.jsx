@@ -4,7 +4,7 @@ export default function Experience() {
   const { t } = useLanguage();
 
   return (
-    <section id="experiencias" className="py-24 px-6 md:px-12 max-w-4xl mx-auto border-b border-zinc-900">
+    <section id="experiencias" className=" py-24 px-6 md:px-12 max-w-4xl mx-auto border-b border-zinc-900">
       <div className="space-y-12">
         <div className="space-y-2">
           <span className="font-mono text-xs text-emerald-400 uppercase tracking-widest">{t.experience.eyebrow}</span>
@@ -13,7 +13,7 @@ export default function Experience() {
 
         <div className="relative border-l border-zinc-800 pl-6 ml-2 md:pl-8 space-y-12">
           {t.experience.jobs.map((job) => (
-            <div key={job.company} className="relative group">
+            <div key={job.company} className="relative group bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4">
               <div
                 className={`absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full border-4 border-[var(--color-dark-bg)] ${
                   job.current ? "bg-emerald-500" : "bg-zinc-700"
