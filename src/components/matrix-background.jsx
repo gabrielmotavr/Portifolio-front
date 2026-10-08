@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
 
-const CHARS = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ0123456789ABCDEF<>/{}";
+const CHARS = "0101010101010101010101";
 const FONT_SIZE = 16;
 const FRAME_MS = 60; // ~16fps: chuva lenta, discreta
 
