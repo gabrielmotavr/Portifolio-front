@@ -27,7 +27,7 @@ function Home() {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block:'start' });
         }
-      }, 300);
+      }, 150);
     } else {
       // Se não tiver hash, rola para o topo ao entrar na home
       window.scrollTo(0, 0);
