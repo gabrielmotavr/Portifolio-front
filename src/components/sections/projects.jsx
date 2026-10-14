@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
+import { ArrowBigRight, ArrowDownLeftFromSquare, ArrowRight, ArrowUpRight, ArrowUpRightFromCircle, ArrowUpRightFromSquareIcon } from "lucide-react";
 
 export default function Projects() {
   const { t } = useLanguage();
@@ -45,6 +46,14 @@ export default function Projects() {
                   <h3 className="text-lg sm:text-xl font-bold text-slate-100 break-words">{proj.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed break-words">{proj.description}</p>
                 </div>
+                {proj.ctaProject && (
+                  <div className="w-45"><a className="px-3 py-2 bg-zinc-900 hover:bg-zinc-800 !text-slate-200 border border-zinc-700 hover:border-emerald-500/50 rounded-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 cursor-pointer !no-underline" href={proj.link}>
+                  {proj.ctaProject} <ArrowUpRightFromSquareIcon className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </a></div>
+                )
+
+                }
+                
                 <div className="pt-4 border-t border-zinc-900 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-400">
                   {proj.tags.map((tag, tIdx) => (
                     <span key={tIdx} className="px-2 py-0.5 bg-zinc-900 rounded">{tag}</span>

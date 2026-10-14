@@ -92,17 +92,20 @@ const translations = {
           tags: ["React", "Node.js", "Claude Code"]
         },
         {
-          title: "VemDoar",
-          category: "Projeto de Impacto Social",
-          description: "Plataforma para engajamento e agendamento de doação de sangue. Focada em regras de negócio para triagem, acompanhamento de histórico e mecanismos de incentivo aos doadores.",
-          tags: ["Java", "Spring Boot", "React"]
+          img:"/images/projetoTarefa.png",
+          link:"https://to-do-list-lsds.onrender.com/",
+          title: "To do List",
+          category: "Uso Pessoal",
+          ctaProject: "Ir para o Projeto",
+          description: "Crud de lista de tarefas",
+          tags: ["Node", "JavaScript"]
         },
-        {
-          title: "Módulo Contábil Web",
-          category: "Migração de Sistema",
-          description: "Modernização de módulos contábeis legados para a web. Foco na estruturação de dados de plano de contas, consumo de APIs e integração com banco relacional.",
-          tags: ["React", "Firebird SQL", "Postman"]
-        }
+        // {
+        //   title: "Módulo Contábil Web",
+        //   category: "Migração de Sistema",
+        //   description: "Modernização de módulos contábeis legados para a web. Foco na estruturação de dados de plano de contas, consumo de APIs e integração com banco relacional.",
+        //   tags: ["React", "Firebird SQL", "Postman"]
+        // }
       ]
     },
     contact: {
@@ -212,23 +215,27 @@ const translations = {
       list: [
         {
           img: "/images/FSOrcamento.png",
+          link: "",
           title: "Construction Budgeting System",
           category: "Internal Business Tool",
           description: "Solution built to centralize the creation and management of construction budgets, organizing complex business rules and reducing technical preparation time.",
           tags: ["React", "Node.js", "Claude Code"]
         },
         {
-          title: "VemDoar",
-          category: "Social Impact Project",
-          description: "Platform for engaging donors and scheduling blood donations. Focused on business rules for screening, history tracking and donor incentive mechanisms.",
-          tags: ["Java", "Spring Boot", "React"]
+          img:"/images/projetoTarefa.png",
+          link:"https://to-do-list-lsds.onrender.com/",
+          title: "To do List",
+          ctaProject: "Go to the Project",
+          category: "Personal Use",
+          description: "To-do list CRUD",
+          tags: ["Node", "JavaScript"]
         },
-        {
-          title: "Web Accounting Module",
-          category: "System Migration",
-          description: "Modernization of legacy accounting modules for the web. Focused on structuring chart-of-accounts data, consuming APIs and integrating with a relational database.",
-          tags: ["React", "Firebird SQL", "Postman"]
-        }
+        // {
+        //   title: "Web Accounting Module",
+        //   category: "System Migration",
+        //   description: "Modernization of legacy accounting modules for the web. Focused on structuring chart-of-accounts data, consuming APIs and integrating with a relational database.",
+        //   tags: ["React", "Firebird SQL", "Postman"]
+        // }
       ]
     },
     contact: {
