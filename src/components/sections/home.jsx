@@ -6,11 +6,34 @@ import Projects from "../../components/sections/projects.jsx";
 import Contact from "../../components/sections/contact.jsx";
 import Footer from "../../components/sections/footer.jsx";
 import MatrixBackground from "../../components/matrix-background.jsx";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 //import GitHubRepos from "../GitHub/GitHubRepos.jsx";
 //import GitHubProfileCard from "../GitHub/GitHubProfileCard.jsx";
 //import GitHubDashboard from "../../components/GitHub/GitHubDashboard.jsx";
 
 function Home() {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Se a URL tiver um hash (ex: /#contato)
+    if (location.hash) {
+      const elementId = location.hash.replace('#', ''); // vira 'contato'
+      
+      // Pequeno timeout para garantir que o DOM da Home foi totalmente renderizado
+      setTimeout(() => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block:'start' });
+        }
+      }, 300);
+    } else {
+      // Se não tiver hash, rola para o topo ao entrar na home
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <div className="bg-[var(--color-dark-bg)] text-slate-100 min-h-screen relative selection:bg-emerald-500 selection:text-black">
       <header>

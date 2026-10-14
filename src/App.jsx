@@ -1,9 +1,12 @@
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/sections/home.jsx';
+import GitHubDashboard from './components/GitHub/GitHubDashboard.jsx';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[var(--color-dark-bg)] text-slate-100">
-      <Home />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/github" element={<GitHubDashboard />} />
+    </Routes>
   );
 }
