@@ -33,6 +33,7 @@ html.light {
 
 html, body {
   transition: background-color 0.2s ease, color 0.2s ease;
+  scroll-behavior: smooth !important;
 }
 
 /* Reset direcionado aos links do React Router */
@@ -53,6 +54,7 @@ html, body {
   background-color: var(--color-dark-bg);
   color: var(--color-slate-100);
   font-family: system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth !important;
 }
 
 .neon-glow {

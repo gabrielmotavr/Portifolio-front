@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,15 +49,19 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <a
-            href="#home"
+          <Link
+            to={{
+              pathname: "/",
+              hash: "#home"
+            }}
             onClick={closeMenu}
             className="flex items-center gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded !no-underline group"
+
           >
             <span className="font-mono font-bold text-base !text-slate-100 tracking-tight group-hover:!text-emerald-400 transition-colors">
               <span className="!text-emerald-500 mr-1">&gt;</span>Gabriel Mota
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Links de navegação */}
@@ -73,11 +78,10 @@ export default function Navbar() {
                 type="button"
                 onClick={() => toggleLanguage(lang)}
                 aria-pressed={language === lang}
-                className={`px-2.5 py-1 rounded-md uppercase cursor-pointer transition-all duration-200 active:scale-95 ${
-                  language === lang
-                    ? "bg-emerald-600 hover:bg-emerald-500 text-black font-semibold"
-                    : "text-slate-400 hover:text-emerald-400 hover:bg-zinc-900"
-                }`}
+                className={`px-2.5 py-1 rounded-md uppercase cursor-pointer transition-all duration-200 active:scale-95 ${language === lang
+                  ? "bg-emerald-600 hover:bg-emerald-500 text-black font-semibold"
+                  : "text-slate-400 hover:text-emerald-400 hover:bg-zinc-900"
+                  }`}
               >
                 {lang}
               </button>
@@ -103,9 +107,8 @@ export default function Navbar() {
             id="collapseMenu"
             ref={menuRef}
             tabIndex={-1}
-            className={`${
-              isMenuOpen ? "block" : "hidden"
-            } lg:block bg-[var(--color-dark-bg)] lg:bg-transparent border-l border-emerald-500/20 lg:border-none w-64 lg:w-auto fixed lg:static top-0 right-0 h-full lg:h-auto shadow-2xl lg:shadow-none overflow-auto z-50 outline-none p-6 lg:p-0`}
+            className={`${isMenuOpen ? "block" : "hidden"
+              } lg:block bg-[var(--color-dark-bg)] lg:bg-transparent border-l border-emerald-500/20 lg:border-none w-64 lg:w-auto fixed lg:static top-0 right-0 h-full lg:h-auto shadow-2xl lg:shadow-none overflow-auto z-50 outline-none p-6 lg:p-0`}
           >
             <div className="py-4 px-2 flex justify-between items-center border-b border-zinc-800 lg:hidden mb-4">
               <span className="font-mono text-xs font-semibold text-emerald-400">
@@ -122,29 +125,45 @@ export default function Navbar() {
 
             <ul className="flex flex-col gap-3 lg:gap-4 lg:flex-row items-start lg:items-center list-none p-0 m-0">
               <li>
-                <a href="#home" onClick={closeMenu} className={navLinkStyle}>
+                <Link to={{
+                  pathname: "/",
+                  hash: "#home"
+                }} onClick={closeMenu} className={navLinkStyle}>
                   {t.nav.home}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#sobre" onClick={closeMenu} className={navLinkStyle}>
+                <Link to={{
+                  pathname: "/",
+                  hash: "#sobre"
+                }} onClick={closeMenu} className={navLinkStyle}>
                   {t.nav.about}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#experiencias" onClick={closeMenu} className={navLinkStyle}>
+                <Link to={{
+                  pathname: "/",
+                  hash: "#experiencias"
+                }} onClick={closeMenu} className={navLinkStyle}>
                   {t.nav.experience}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#projetos" onClick={closeMenu} className={navLinkStyle}>
+                <Link to={{
+                  pathname: "/",
+                  hash: "#projetos"
+                }} onClick={closeMenu} className={navLinkStyle}>
                   {t.nav.projects}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contato" onClick={closeMenu} className={navLinkStyle}>
+                <Link
+                  to="/#contato"
+                  onClick={closeMenu}
+                  className={navLinkStyle}
+                >
                   {t.nav.contact}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

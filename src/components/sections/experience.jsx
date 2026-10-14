@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 
 export default function Experience() {
@@ -15,20 +16,18 @@ export default function Experience() {
           {t.experience.jobs.map((job) => (
             <div key={job.company} className="relative group bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4">
               <div
-                className={`absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full border-4 border-[var(--color-dark-bg)] ${
-                  job.current ? "bg-emerald-500" : "bg-zinc-700"
-                }`}
+                className={`absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full border-4 border-[var(--color-dark-bg)] ${job.current ? "bg-emerald-500" : "bg-zinc-700"
+                  }`}
               ></div>
 
               <div className="space-y-3">
                 <div className="flex flex-wrap justify-between items-baseline gap-2">
                   <h3 className="text-xl font-bold text-slate-100">{job.role}</h3>
                   <span
-                    className={`font-mono text-xs px-2.5 py-1 rounded border ${
-                      job.current
+                    className={`font-mono text-xs px-2.5 py-1 rounded border ${job.current
                         ? "text-emerald-400 bg-emerald-950/50 border-emerald-500/20"
                         : "text-slate-400 bg-zinc-900 border-zinc-800"
-                    }`}
+                      }`}
                   >
                     {job.period}
                   </span>
@@ -42,8 +41,18 @@ export default function Experience() {
                 </ul>
               </div>
             </div>
+
           ))}
         </div>
+      </div>
+      <div className="p-5">
+        <Link
+          to="/github"
+          className="group px-6 py-3 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 hover:border-emerald-500/50 rounded-lg !text-slate-200 hover:!text-emerald-400 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg hover:shadow-emerald-900/30 flex items-center gap-2 cursor-pointer !no-underline"
+
+        >Ver estatísticas do GitHub
+          {/* <ExternalLinkIcon className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /> */}
+        </Link>
       </div>
     </section>
   );

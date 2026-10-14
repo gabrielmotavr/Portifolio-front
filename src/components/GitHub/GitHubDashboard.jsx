@@ -7,6 +7,8 @@ import GitHubProfileCard from "./GitHubProfileCard";
 import GitHubRepos from "./GitHubRepos";
 import GitHubStats from "./GitHubStats";
 import "./GitHub.css";
+import Navbar from "../sections/navbar.jsx";
+import { div } from "framer-motion/client";
 
 /**
  * Painel completo: busca + perfil + indicadores + contribuições + linguagens + repositórios.
@@ -26,30 +28,34 @@ export default function GitHubDashboard({ username: initial = GITHUB_CONFIG.USER
   };
 
   return (
-    <div className="gh">
-      {GITHUB_CONFIG.ALLOW_SEARCH && (
-        <form className="gh-search" onSubmit={handleSubmit} role="search">
-          <FiSearch className="gh-search-icon" aria-hidden="true" />
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Usuário do GitHub"
-            aria-label="Usuário do GitHub"
-            autoComplete="off"
-            spellCheck="false"
-          />
-          <button type="submit">Buscar</button>
-        </form>
-      )}
 
-      {/* key={username}: ao trocar de usuário, tudo recomeça do zero */}
-      <div key={username} className="gh-sections">
-        <GitHubProfileCard username={username} />
-        <GitHubStats username={username} />
-        <GitHubContributions username={username} />
-        <GitHubLanguages username={username} />
-        <GitHubRepos username={username} />
-      </div>
-    </div>
+    <><Navbar />
+      <div className="mt-20 w-100 flex justify-content-center">
+        <div className="gh">
+
+          {GITHUB_CONFIG.ALLOW_SEARCH && (
+            <form className="gh-search" onSubmit={handleSubmit} role="search">
+              <FiSearch className="gh-search-icon" aria-hidden="true" />
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Usuário do GitHub"
+                aria-label="Usuário do GitHub"
+                autoComplete="off"
+                spellCheck="false" />
+              <button type="submit">Buscar</button>
+            </form>
+          )}
+
+          {/* key={username}: ao trocar de usuário, tudo recomeça do zero */}
+          <div key={username} className="gh-sections">
+            <GitHubProfileCard username={username} />
+            <GitHubStats username={username} />
+            <GitHubContributions username={username} />
+            <GitHubLanguages username={username} />
+            <GitHubRepos username={username} />
+          </div>
+        </div>
+      </div></>
   );
 }
