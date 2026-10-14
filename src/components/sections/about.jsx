@@ -32,9 +32,6 @@ export default function About() {
           </p>
 
 
-          <Link to="/github">
-            Ver estatísticas do GitHub
-          </Link>
 
           <a
             href="/github"
