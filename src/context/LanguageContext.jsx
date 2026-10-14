@@ -77,7 +77,8 @@ const translations = {
             "Consultas e manipulação de banco de dados relacional Firebird (SQL) e testes de rotas com Postman."
           ]
         }
-      ]
+      ],
+      git: "Ver estatísticas do GitHub"
     },
     projects: {
       eyebrow: "// Portfólio Prático",
@@ -202,7 +203,8 @@ const translations = {
             "Querying and handling a Firebird relational database (SQL) and testing routes with Postman."
           ]
         }
-      ]
+      ],
+      git: "See GitHub stats"
     },
     projects: {
       eyebrow: "// Hands-on Portfolio",
