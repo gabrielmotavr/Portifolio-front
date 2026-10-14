@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 
 export default function About() {
@@ -24,10 +25,24 @@ export default function About() {
           <blockquote className="p-4 border-l-2 border-emerald-500 bg-zinc-950/60 text-slate-300 font-mono text-sm my-6 rounded-r-lg">
             {about.quote}
           </blockquote>
+         
 
           <p>
             {about.p3.before}<strong className="text-slate-100 font-semibold">{about.p3.highlight}</strong>{about.p3.after}
           </p>
+
+
+          <Link to="/github">
+            Ver estatísticas do GitHub
+          </Link>
+
+          <a
+            href="/github"
+            className="group px-6 py-3 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800 hover:border-emerald-500/50 rounded-lg !text-slate-200 hover:!text-emerald-400 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 hover:shadow-lg hover:shadow-emerald-900/30 flex items-center gap-2 cursor-pointer !no-underline"
+          >
+            Ver estatísticas do GitHub
+            <ExternalLink className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </div>
       </div>
     </section>

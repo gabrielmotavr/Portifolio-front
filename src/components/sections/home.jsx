@@ -6,6 +6,9 @@ import Projects from "../../components/sections/projects.jsx";
 import Contact from "../../components/sections/contact.jsx";
 import Footer from "../../components/sections/footer.jsx";
 import MatrixBackground from "../../components/matrix-background.jsx";
+//import GitHubRepos from "../GitHub/GitHubRepos.jsx";
+//import GitHubProfileCard from "../GitHub/GitHubProfileCard.jsx";
+//import GitHubDashboard from "../../components/GitHub/GitHubDashboard.jsx";
 
 function Home() {
   return (
@@ -24,6 +27,9 @@ function Home() {
         <About />
         <Experience />
         <Projects />
+        {/* <GitHubDashboard /> */}
+        {/* <GitHubRepos username="gabrielmotavr" />  */}
+        
         <Contact />
       </main>
 
